@@ -15,22 +15,20 @@ const UserSchema = new Schema({
         required: true,
     },
     chats: [{
-        id: {
-            type: Schema.Types.ObjectId,
-            ref: 'Chats'
-        }
+        type: Schema.Types.ObjectId,
+        ref: 'Chats'
     }],
     friends: [{
-        id: {
-            type: Schema.Types.ObjectId,
-            ref: 'Users'
-        }
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
     }],
-    invites: [{
-        id: {
-            type: Schema.Types.ObjectId,
-            ref: "Chats"
-        }
+    chatInvites: [{
+        type: Schema.Types.ObjectId,
+        ref: "Chats"
+    }],
+    friendInvites: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
     }],
     createdAt: {
         type: Date,

@@ -14,9 +14,6 @@ function genAccessToken(id){
 module.exports = {
     login: async (req, res, next) => {
         try {
-            if (!req.body){
-                return res.status(400).send("Bad Request")
-            }
 
             const {login, password} = req.body
             const candidate = await User.find({login: login})
@@ -36,10 +33,7 @@ module.exports = {
 
     register: async (req, res, next) => {
         try {
-            if(!req.body){
-                return res.status(400).send("Bad Request")
-            }
-
+        
             const {name, login, password} = req.body
             const isExist = await User.exists({login:login})
 
