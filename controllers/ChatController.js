@@ -32,7 +32,7 @@ module.exports = {
             var chat = await Chat.findById(chatId)
 
             if (!text && !files){
-                return res.status(400).send("Bad Request")
+                return res.status(400).send("You can't send empty message")
             }
 
             chat.message.push({
