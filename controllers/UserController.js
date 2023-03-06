@@ -51,7 +51,12 @@ module.exports = {
     chatInviteAnswere: async (req, res, next) => {
         try {
 
-            return res.status(501).send("Coming Soon...")
+            const {chatId, isAccept} = req.body
+
+            if(!isAccept){
+                await User.findByIdAndUpdate(req.body.id, {$pull: {chatInvites: chatId}})
+                return res.status(203)
+            }
 
         } catch (err) {
             next(err)

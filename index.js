@@ -29,10 +29,12 @@ app.use(fileupload({
 //Routes
 const UserRoute = require("./routes/UserRoute")
 const AuthRoute = require("./routes/AuthRoute")
+const ChatRoute = require("./routes/ChatRoute")
 
 
 app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
+app.use('/chat', ChatRoute)
 
 
 //ErrorHandler
