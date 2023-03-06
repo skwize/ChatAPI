@@ -34,7 +34,7 @@ module.exports = {
     register: async (req, res, next) => {
         try {
         
-            const {name, avatar, login, password} = req.body
+            const {name, login, password} = req.body
             const isExist = await User.exists({login:login})
 
             if(isExist) {
@@ -43,11 +43,15 @@ module.exports = {
 
             const hash = await bcrypt.hash(password, 7)
 
-            const avatarUrl = null
-
-            await User.create({name: name, avatar: avatarUrl || "",login:login, password: hash}).then(r=>{
+            await User.create({
+                name: name,
+                avatar: "",
+                login:login,
+                password: hash
+            })
+            .then( userData=>{
                 return res.status(201).send({
-                    token: genAccessToken(r._id)
+                    token: genAccessToken(userData._id)
                 })
             })
 

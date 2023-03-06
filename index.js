@@ -19,6 +19,7 @@ app.use(fileupload({
     createParentPath:true,
     limits: "20mb"
 }))
+app.use(express.static("public"))
 
 
 

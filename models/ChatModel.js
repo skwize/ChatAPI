@@ -2,6 +2,7 @@ const {Schema, model} = require("mongoose")
 
 const ChatSchema = new Schema({
     title: String,
+    avatarUrl: String,
     members: [{
         type: Schema.Types.ObjectId
     }],
