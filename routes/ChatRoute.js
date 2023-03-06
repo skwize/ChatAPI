@@ -8,6 +8,6 @@ router.post('/create', [AuthMiddleware, ReqBodyValidate], controller.create)
 router.patch('/send', [AuthMiddleware, ReqBodyValidate], controller.messageManipulation.sendMessage)
 
 // Chat settings
-router.patch('/settings/title', AuthMiddleware, controller.settings)
+router.patch('/settings/title', AuthMiddleware, controller.settings.changeTitle)
 
 module.exports = router

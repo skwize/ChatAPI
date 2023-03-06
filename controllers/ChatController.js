@@ -57,7 +57,7 @@ module.exports = {
     settings: {
         changeTitle: async (req, res, next) => {
             try {
-                
+                res.status(501).send("Comming Soon...")
             } catch (err) {
                 next(err)
             }
